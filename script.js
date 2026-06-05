@@ -35,7 +35,12 @@ const PROJECTS_DATA = [
     title: "Verify: An Ensemble Deep Learning Web Platform for Video Forensics",
     descriptionTitle: "Deepfake Detection Using Temporal Consistency Analysis",
     description: "This research explores advanced deep learning techniques for detecting AI-generated video content. By analyzing temporal inconsistencies and frame-level artifacts, our system identifies manipulated media with high precision. Developed as part of a Computer Science thesis, this prototype demonstrates the practical application of computer vision and machine learning in combating digital misinformation.",
-    authors: "Lee Russell B. Mejares | Romulo Ian L. Nacion | Genesis Paul A. Mellomida | Jhergen M. Sevilla",
+    authors: [
+      { name: "Lee Russell B. Mejares", role: "" },
+      { name: "Romulo Ian L. Nacion", role: "" },
+      { name: "Genesis Paul A. Mellomida", role: "" },
+      { name: "Jhergen M. Sevilla", role: "" },
+    ],
     year: "2026",
     department: "College of Informatics — Computer Science",
     howItWorks: [
@@ -107,7 +112,11 @@ const PROJECTS_DATA = [
     title: "PCU Canteen: Pre-Order & Management System",
     descriptionTitle: "PCU Canteen Pre-Order & Management System",
     description: "The PCU Canteen Pre‑Order and Management System transforms the traditional cash‑and‑carry canteen into a modern, efficient digital service. Students can browse the menu, customize orders, schedule pick‑up times, earn loyalty points, and reorder from history—all without waiting in long lines. Kitchen staff gain a real‑time dashboard to manage products, track inventory, upload promo images via Cloudinary, and view analytics (top items, daily revenue, peak hours). A super admin oversees user roles and access permissions. The system is built with a responsive web frontend (HTML5/CSS3/JavaScript) and a backend powered by Firebase Firestore for real‑time data sync, Node.js/Express for API endpoints, and Cloudinary for cloud‑based image hosting. Agile Scrum methodology guided iterative development.",
-    authors: "Lee Russell B. Mejares | Joaquin Eivan N. Martelino | Mark Joseph Paule",
+    authors: [
+      { name: "Lee Russell B. Mejares", role: "" },
+      { name: "Joaquin Eivan N. Martelino", role: "" },
+      { name: "Mark Joseph Paule", role: "" },
+    ],
     year: "2026",
     department: "College of Informatics — Computer Science",
     howItWorks: [
@@ -248,7 +257,15 @@ const PROJECTS_DATA = [
     title: "JP Gadgets Shoppe — Inventory Management System",
     descriptionTitle: "JP Gadgets Shoppe — Inventory Management System",
     description: "A web-based inventory management system built for JP Gadgets Shoppe to streamline product tracking, sales recording, and expense monitoring. The system features a batch-based inventory model where products are grouped by purchase batch, enabling accurate cost tracking and stock management across multiple product categories. Sales are logged with full transaction details including payment mode, delivery method, and customer information, while expenses are organized by batch for clear financial oversight.",
-    authors: "Sydney P. Toreña (Manager) | Genesis Paul A. Mellomida (Analyst) | Liah Hellaene Tenedora (Analyst) | Lee Russell B. Mejares (Developer) | Angel Rose F. Cerezo (Developer) | Mark Joseph G. Paule (Tester/QA) | Crystal Breanne P. Aznar (Tester/QA)",
+    authors: [
+      { name: "Sydney P. Toreña", role: "Manager" },
+      { name: "Genesis Paul A. Mellomida", role: "Analyst" },
+      { name: "Liah Hellaene Tenedora", role: "Analyst" },
+      { name: "Lee Russell B. Mejares", role: "Developer" },
+      { name: "Angel Rose F. Cerezo", role: "Developer" },
+      { name: "Mark Joseph G. Paule", role: "Tester/QA" },
+      { name: "Crystal Breanne P. Aznar", role: "Tester/QA" },
+    ],
     year: "2025",
     department: "College of Informatics — Computer Science",
     howItWorks: [
@@ -299,7 +316,7 @@ const PROJECTS_DATA = [
         ]
       }
     ],
-    tags: ["Node.js", "Express", "HTML5/CSS3/JavaScript", "SQLite", "better-sqlite3", "REST API"],
+    tags: ["Node.js", "Express", "HTML5/CSS3/JavaScript", "Firebase Firestore", "REST API"],
     metrics: [
       { label: "Database",     value: "Firebase Firestore",   colorClass: "" },
       { label: "API Routes",   value: "15+ Endpoints",       colorClass: "metric--green" },
@@ -418,7 +435,22 @@ function renderProjectStage(index) {
       ? '<h4 class="project-description__title">' + project.descriptionTitle + '</h4>'
       : '';
     var metaItems = [];
-    if (project.authors) metaItems.push('<span class="project-meta__item"><strong>Authors:</strong> ' + project.authors + '</span>');
+    if (project.authors) {
+      var authorsHTML = '';
+      if (Array.isArray(project.authors)) {
+        var authorCards = project.authors.map(function (a) {
+          var roleHTML = a.role ? '<span class="project-authors__role">' + a.role + '</span>' : '';
+          return '<div class="project-authors__item">' +
+            '<span class="project-authors__name">' + a.name + '</span>' +
+            roleHTML +
+          '</div>';
+        }).join('');
+        authorsHTML = '<div class="project-authors">' + authorCards + '</div>';
+      } else {
+        authorsHTML = project.authors;
+      }
+      metaItems.push('<div class="project-meta__item project-meta__item--authors"><strong>Authors:</strong> ' + authorsHTML + '</div>');
+    }
     if (project.year)     metaItems.push('<span class="project-meta__item"><strong>Year:</strong> ' + project.year + '</span>');
     if (project.department) metaItems.push('<span class="project-meta__item"><strong>Department:</strong> ' + project.department + '</span>');
     var metaHTML = metaItems.length

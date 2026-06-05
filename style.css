@@ -973,6 +973,50 @@ input, textarea { font-family: inherit; }
   font-weight: 600;
 }
 
+.project-meta__item--authors {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-authors {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.project-authors__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--duration) var(--ease);
+}
+
+.project-authors__item:hover {
+  border-color: var(--border-hover);
+}
+
+.project-authors__name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.project-authors__role {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: var(--blue-glow);
+  color: var(--blue);
+  white-space: nowrap;
+}
+
 /* === HOW IT WORKS === */
 .hiw-section {
   margin-bottom: 28px;
@@ -2068,6 +2112,10 @@ input, textarea { font-family: inherit; }
   }
 
   .about-card__info {
+    grid-template-columns: 1fr;
+  }
+
+  .project-authors {
     grid-template-columns: 1fr;
   }
 
