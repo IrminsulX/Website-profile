@@ -227,7 +227,7 @@ const PROJECTS_DATA = [
         { src: "images/home-page.png",          label: "Home Page" },
         { src: "images/Menu-page.png",          label: "Menu Page" },
         { src: "images/Order-history-page.png", label: "Order History Page" },
-        { src: "images/Dashboard-page.png",     label: "Dashboard Page" },
+        { src: "images/pcuDashboard-page.png",     label: "Dashboard Page" },
         { src: "images/Kitchen-staff-page.png", label: "Kitchen Staff Page" },
         { src: "images/Admin-page.png",         label: "Admin Page" },
       ];
