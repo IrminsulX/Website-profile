@@ -14,9 +14,9 @@
    SKILLS DATA — Populates the hero badge grid
    ───────────────────────────────────────────────────────────── */
 const SKILLS = [
-  "Node.js", "Python", "Flask", "Express",
-  "Firebase Firestore", "PyTorch", "OpenCV",
-  "Cloudinary", "HTML5", "CSS3", "JavaScript"
+  "JavaScript", "Python", "Node.js", "Express", "Flask",
+  "React", "HTML5", "CSS3", "PyTorch", "OpenCV",
+  "Firebase Firestore", "Cloudinary", "SQLite", "REST APIs", "Git"
 ];
 
 /* ─────────────────────────────────────────────────────────────
@@ -451,8 +451,12 @@ function renderProjectStage(index) {
       }
       metaItems.push('<div class="project-meta__item project-meta__item--authors"><strong>Authors:</strong> ' + authorsHTML + '</div>');
     }
-    if (project.year)     metaItems.push('<span class="project-meta__item project-meta__item--badge"><span class="project-meta__icon">&#128197;</span> <strong>Year:</strong> ' + project.year + '</span>');
-    if (project.department) metaItems.push('<span class="project-meta__item project-meta__item--badge"><span class="project-meta__icon">&#127891;</span> <strong>Department:</strong> ' + project.department + '</span>');
+    var yearDeptItems = [];
+    if (project.year)       yearDeptItems.push('<span class="project-meta__badge"><span class="project-meta__icon">&#128197;</span> ' + project.year + '</span>');
+    if (project.department) yearDeptItems.push('<span class="project-meta__badge"><span class="project-meta__icon">&#127891;</span> ' + project.department + '</span>');
+    if (yearDeptItems.length) {
+      metaItems.push('<div class="project-meta__item project-meta__item--yeardept">' + yearDeptItems.join('') + '</div>');
+    }
     var metaHTML = metaItems.length
       ? '<div class="project-meta">' + metaItems.join('') + '</div>'
       : '';
