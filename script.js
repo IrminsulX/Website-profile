@@ -242,44 +242,105 @@ const PROJECTS_DATA = [
   },
 
   {
-    /* --- PROJECT 3: Future System Placeholder --- */
-    id: "future-placeholder",
-    tabLabel: "[Upcoming] System Integration",
-    title: "System Integration Project [Upcoming]",
-    tags: ["Next.js", "TypeScript", "TailwindCSS", "PostgreSQL"],
-    metrics: [
-      { label: "Status",     value: "In Architecture Phase", colorClass: "" },
-      { label: "Scope",      value: "Scalable Microservices", colorClass: "metric--purple" },
-      { label: "Dev Cycle",  value: "Sprint 0",              colorClass: "metric--green" },
-      { label: "Target",     value: "Q4 2026",               colorClass: "metric--amber" },
+    /* --- PROJECT 3: JP Gadgets Shoppe IMS --- */
+    id: "jp-gadgets-ims",
+    tabLabel: "JP Gadgets — Inventory Management",
+    title: "JP Gadgets Shoppe — Inventory Management System",
+    descriptionTitle: "JP Gadgets Shoppe — Inventory Management System",
+    description: "A web-based inventory management system built for JP Gadgets Shoppe to streamline product tracking, sales recording, and expense monitoring. The system features a batch-based inventory model where products are grouped by purchase batch, enabling accurate cost tracking and stock management across multiple product categories. Sales are logged with full transaction details including payment mode, delivery method, and customer information, while expenses are organized by batch for clear financial oversight.",
+    authors: "Lee Russell B. Mejares",
+    year: "2025",
+    department: "College of Informatics — Computer Science",
+    howItWorks: [
+      {
+        step: "01",
+        title: "User Registration & Login",
+        details: [
+          "Create an account with username and password.",
+          "Credentials are stored securely for session-based access.",
+          "Redirected to the dashboard upon successful login."
+        ]
+      },
+      {
+        step: "02",
+        title: "Dashboard Overview",
+        details: [
+          "View real-time summary cards: total batches, total items, total sales, and total expenses.",
+          "Quick-glance metrics help owners monitor business health at a glance."
+        ]
+      },
+      {
+        step: "03",
+        title: "Inventory Management",
+        details: [
+          "Create and manage product batches with names and dates.",
+          "Add individual items to each batch with product name, SKU, quantity, and price.",
+          "Track repair records and costs per item.",
+          "Full CRUD operations on batches and items via REST API."
+        ]
+      },
+      {
+        step: "04",
+        title: "Sales Tracking",
+        details: [
+          "Record sales with unit details, quantity, sell price, and payment mode.",
+          "Capture customer name, receipt number, and delivery mode.",
+          "Track encashed status for each transaction.",
+          "View sales summary with total units, transactions, and top-selling product."
+        ]
+      },
+      {
+        step: "05",
+        title: "Expense Monitoring",
+        details: [
+          "Organize expenses into named batches with dates.",
+          "Log individual expenses with category, amount, and description.",
+          "Maintain a clear financial record separated by expense period."
+        ]
+      }
     ],
-    layoutProfile: "blueprint-placeholder",
+    tags: ["Node.js", "Express", "HTML5/CSS3/JavaScript", "SQLite", "better-sqlite3", "REST API"],
+    metrics: [
+      { label: "Database",     value: "SQLite (WAL Mode)",   colorClass: "" },
+      { label: "API Routes",   value: "15+ Endpoints",       colorClass: "metric--green" },
+      { label: "Architecture", value: "REST + MVC",          colorClass: "metric--purple" },
+      { label: "Auth",         value: "Session-Based",       colorClass: "metric--amber" },
+    ],
+    layoutProfile: "transactional-analytics",
 
+    /**
+     * renderMockup — Generates the JP Gadgets screenshot gallery.
+     */
     renderMockup: function () {
-      // Blueprint grid cells — some randomly marked as "filled" to simulate layout wireframes
-      var filledIndices = [1, 3, 5, 8, 10, 12, 14, 17, 19, 21];
-      return `
-        <div class="placeholder-display">
-          <div class="placeholder-blueprint">
-            <div class="placeholder-blueprint__grid">
-              ${Array.from({ length: 24 }, function (_, i) {
-                var cls = filledIndices.includes(i)
-                  ? 'placeholder-blueprint__cell filled'
-                  : 'placeholder-blueprint__cell';
-                return '<div class="' + cls + '"></div>';
-              }).join('')}
-            </div>
-            <div class="placeholder-code-snippet">
-              <span class="kw">const</span> <span class="fn">app</span> = <span class="fn">createMicroservice</span>({<br>
-              &nbsp;&nbsp;module: <span class="str">"order-service"</span>,<br>
-              &nbsp;&nbsp;transport: <span class="str">"gRPC"</span><br>
-              });
-            </div>
-          </div>
-          <span class="placeholder-label">In Architecture Phase</span>
-          <span class="placeholder-sub">Sprint 0 — Active design and scaffolding underway</span>
-          <div class="placeholder-pulse"></div>
-        </div>`;
+      var screenshots = [
+        { src: "images/Log-in-page.png",          label: "Log-In Page" },
+        { src: "images/Register-page.png",        label: "Register Page" },
+        { src: "images/Forgot-password-page.png", label: "Forgot Password Page" },
+        { src: "images/Dashboard-page.png",       label: "Dashboard" },
+        { src: "images/Inventory-page.png",       label: "Inventory Page" },
+        { src: "images/add-new-batch-modal.png",  label: "Add New Batch Modal" },
+        { src: "images/Sales-page.png",           label: "Sales Page" },
+        { src: "images/Add-new-sale-modal.png",   label: "Add New Sale Modal" },
+        { src: "images/Expenses-page.png",        label: "Expenses Page" },
+        { src: "images/Add-expense-batch-modal.png", label: "Add Expense Batch Modal" },
+        { src: "images/Add-new-expense-modal.png",   label: "Add New Expense Modal" },
+      ];
+
+      var galleryItems = screenshots.map(function (img, i) {
+        return '<div class="verify-gallery__item" data-lightbox-trigger="' + i + '">' +
+          '<div class="verify-gallery__label">' + img.label + '</div>' +
+          '<div class="verify-gallery__frame">' +
+            '<img src="' + img.src + '" alt="' + img.label + '" onerror="this.style.display=\'none\'; this.nextElementSibling.style.display=\'flex\';">' +
+            '<div class="verify-gallery__placeholder" style="display:none;">' +
+              '<span class="verify-gallery__placeholder-icon">&#128247;</span>' +
+              '<span>Screenshot not found<br><code>' + img.src + '</code></span>' +
+            '</div>' +
+            '<div class="verify-gallery__zoom-hint">&#x1F50D; Click to enlarge</div>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+
+      return '<div class="verify-gallery">' + galleryItems + '</div>';
     }
   },
 ];
