@@ -41,7 +41,7 @@ const PROJECTS_DATA = [
       { name: "Genesis Paul A. Mellomida", role: "" },
       { name: "Jhergen M. Sevilla", role: "" },
     ],
-    year: "2026",
+    year: "August 2025 – May 2026",
     department: "College of Informatics — Computer Science",
     howItWorks: [
       {
@@ -117,7 +117,7 @@ const PROJECTS_DATA = [
       { name: "Joaquin Eivan N. Martelino", role: "" },
       { name: "Mark Joseph Paule", role: "" },
     ],
-    year: "2026",
+    year: "March 2026 – May 2026",
     department: "College of Informatics — Computer Science",
     howItWorks: [
       {
@@ -266,7 +266,7 @@ const PROJECTS_DATA = [
       { name: "Mark Joseph G. Paule", role: "Tester/QA" },
       { name: "Crystal Breanne P. Aznar", role: "Tester/QA" },
     ],
-    year: "2025",
+    year: "February 2025 – May 2025",
     department: "College of Informatics — Computer Science",
     howItWorks: [
       {
@@ -453,7 +453,7 @@ function renderProjectStage(index) {
     }
     var yearDeptHTML = '';
     var yearDeptItems = [];
-    if (project.year)       yearDeptItems.push('<span class="project-meta__badge"><span class="project-meta__icon">&#128197;</span> ' + project.year + '</span>');
+    if (project.year)       yearDeptItems.push('<span class="project-meta__badge"><span class="project-meta__icon">Year:</span> ' + project.year + '</span>');
     if (project.department) yearDeptItems.push('<span class="project-meta__badge"><span class="project-meta__icon">&#127891;</span> ' + project.department + '</span>');
     if (yearDeptItems.length) {
       yearDeptHTML = '<div class="project-meta__line">' + yearDeptItems.join('') + '</div>';
