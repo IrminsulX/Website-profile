@@ -1034,6 +1034,16 @@ input, textarea { font-family: inherit; }
   margin-top: 10px;
 }
 
+.project-meta__line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
 .project-meta__badge {
   font-size: 0.8rem;
   font-weight: 500;
@@ -1055,6 +1065,7 @@ input, textarea { font-family: inherit; }
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 100%;
 }
 
 .project-authors {

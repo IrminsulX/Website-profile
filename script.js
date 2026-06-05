@@ -227,7 +227,7 @@ const PROJECTS_DATA = [
         { src: "images/home-page.png",          label: "Home Page" },
         { src: "images/Menu-page.png",          label: "Menu Page" },
         { src: "images/Order-history-page.png", label: "Order History Page" },
-        { src: "images/pcuDashboard-page.png",     label: "Dashboard Page" },
+        { src: "images/Dashboard-page.png",     label: "Dashboard Page" },
         { src: "images/Kitchen-staff-page.png", label: "Kitchen Staff Page" },
         { src: "images/Admin-page.png",         label: "Admin Page" },
       ];
@@ -434,37 +434,37 @@ function renderProjectStage(index) {
     var descTitleHTML = project.descriptionTitle
       ? '<h4 class="project-description__title">' + project.descriptionTitle + '</h4>'
       : '';
-    var metaItems = [];
+    var authorsHTML = '';
     if (project.authors) {
-      var authorsHTML = '';
+      var authorCards = '';
       if (Array.isArray(project.authors)) {
-        var authorCards = project.authors.map(function (a) {
+        var cards = project.authors.map(function (a) {
           var roleHTML = a.role ? '<span class="project-authors__role">' + a.role + '</span>' : '';
           return '<div class="project-authors__item">' +
             '<span class="project-authors__name">' + a.name + '</span>' +
             roleHTML +
           '</div>';
         }).join('');
-        authorsHTML = '<div class="project-authors">' + authorCards + '</div>';
+        authorCards = '<div class="project-authors">' + cards + '</div>';
       } else {
-        authorsHTML = project.authors;
+        authorCards = project.authors;
       }
-      metaItems.push('<div class="project-meta__item project-meta__item--authors"><strong>Authors:</strong> ' + authorsHTML + '</div>');
+      authorsHTML = '<div class="project-meta__item project-meta__item--authors"><strong>Authors:</strong> ' + authorCards + '</div>';
     }
+    var yearDeptHTML = '';
     var yearDeptItems = [];
     if (project.year)       yearDeptItems.push('<span class="project-meta__badge"><span class="project-meta__icon">&#128197;</span> ' + project.year + '</span>');
     if (project.department) yearDeptItems.push('<span class="project-meta__badge"><span class="project-meta__icon">&#127891;</span> ' + project.department + '</span>');
     if (yearDeptItems.length) {
-      metaItems.push('<div class="project-meta__item project-meta__item--yeardept">' + yearDeptItems.join('') + '</div>');
+      yearDeptHTML = '<div class="project-meta__line">' + yearDeptItems.join('') + '</div>';
     }
-    var metaHTML = metaItems.length
-      ? '<div class="project-meta">' + metaItems.join('') + '</div>'
-      : '';
     descriptionHTML =
       '<div class="project-description">' +
         descTitleHTML +
         '<p>' + project.description + '</p>' +
-        metaHTML +
+        (authorsHTML || yearDeptHTML
+          ? '<div class="project-meta">' + authorsHTML + yearDeptHTML + '</div>'
+          : '') +
       '</div>';
   }
 
