@@ -562,6 +562,121 @@ input, textarea { font-family: inherit; }
   min-height: 320px;
 }
 
+/* === TIMELINE (Education) === */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+
+.timeline__item {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.timeline__item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline__dot {
+  position: absolute;
+  left: -28px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--blue);
+  border: 3px solid var(--bg-surface);
+  transform: translateX(-6px);
+  box-shadow: 0 0 0 3px var(--blue-glow);
+}
+
+.timeline__date {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--blue);
+  margin-bottom: 6px;
+}
+
+.timeline__content h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.timeline__content p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* === EXPERIENCE CARD === */
+.experience-card {
+  max-width: 780px;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  padding: 32px;
+  transition: border-color var(--duration) var(--ease);
+}
+
+.experience-card:hover {
+  border-color: var(--border-hover);
+}
+
+.experience-card__header {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.experience-card__header h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.experience-card__role {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--blue);
+}
+
+.experience-card__list li {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.experience-card__list li:last-child {
+  margin-bottom: 0;
+}
+
+.experience-card__list li::before {
+  content: '\25B8';
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+  font-size: 0.8rem;
+  line-height: 1.65;
+}
+
 /* === PROJECT DESCRIPTION === */
 .project-description {
   margin-bottom: 24px;
@@ -1686,6 +1801,10 @@ input, textarea { font-family: inherit; }
 
   .metric-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .experience-card {
+    padding: 24px 20px;
   }
 
   .form-row {
