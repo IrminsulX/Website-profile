@@ -115,7 +115,7 @@ const PROJECTS_DATA = [
     authors: [
       { name: "Lee Russell B. Mejares", role: "" },
       { name: "Joaquin Eivan N. Martelino", role: "" },
-      { name: "Mark Joseph Paule", role: "" },
+      { name: "Mark Joseph G. Paule", role: "" },
     ],
     year: "March 2026 – May 2026",
     department: "College of Informatics — Computer Science",
@@ -222,14 +222,14 @@ const PROJECTS_DATA = [
      */
     renderMockup: function () {
       var screenshots = [
-        { src: "images/Log-in-form.png",        label: "Log-In Form" },
-        { src: "images/Register-form.png",      label: "Register Form" },
-        { src: "images/home-page.png",          label: "Home Page" },
-        { src: "images/Menu-page.png",          label: "Menu Page" },
-        { src: "images/Order-history-page.png", label: "Order History Page" },
-        { src: "images/Dashboard-page.png",     label: "Dashboard Page" },
-        { src: "images/Kitchen-staff-page.png", label: "Kitchen Staff Page" },
-        { src: "images/Admin-page.png",         label: "Admin Page" },
+        { src: "images/Log-in-form.png",                label: "Log-In Form" },
+        { src: "images/Register-form.png",              label: "Register Form" },
+        { src: "images/home-page.png",                  label: "Home Page" },
+        { src: "images/Menu-page.png",                  label: "Menu Page" },
+        { src: "images/Order-history-page.png",         label: "Order History Page" },
+        { src: "images/canteen-Dashboard-page.png",     label: "Dashboard Page" },
+        { src: "images/Kitchen-staff-page.png",         label: "Kitchen Staff Page" },
+        { src: "images/Admin-page.png",                 label: "Admin Page" },
       ];
 
       var galleryItems = screenshots.map(function (img, i) {
