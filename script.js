@@ -451,8 +451,8 @@ function renderProjectStage(index) {
       }
       metaItems.push('<div class="project-meta__item project-meta__item--authors"><strong>Authors:</strong> ' + authorsHTML + '</div>');
     }
-    if (project.year)     metaItems.push('<span class="project-meta__item"><strong>Year:</strong> ' + project.year + '</span>');
-    if (project.department) metaItems.push('<span class="project-meta__item"><strong>Department:</strong> ' + project.department + '</span>');
+    if (project.year)     metaItems.push('<span class="project-meta__item project-meta__item--badge"><span class="project-meta__icon">&#128197;</span> <strong>Year:</strong> ' + project.year + '</span>');
+    if (project.department) metaItems.push('<span class="project-meta__item project-meta__item--badge"><span class="project-meta__icon">&#127891;</span> <strong>Department:</strong> ' + project.department + '</span>');
     var metaHTML = metaItems.length
       ? '<div class="project-meta">' + metaItems.join('') + '</div>'
       : '';
@@ -567,30 +567,6 @@ function initMobileNav() {
   });
 }
 
-
-/**
- * initContactForm — Simple form handler with feedback
- */
-function initContactForm() {
-  var form = document.getElementById('contact-form');
-  if (!form) return;
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var btn = form.querySelector('.terminal-submit');
-    var originalHTML = btn.innerHTML;
-    btn.innerHTML = '<span>Message Sent</span> <span class="btn-icon">&#10003;</span>';
-    btn.style.background = 'var(--green)';
-    btn.style.borderColor = 'var(--green)';
-
-    setTimeout(function () {
-      btn.innerHTML = originalHTML;
-      btn.style.background = '';
-      btn.style.borderColor = '';
-      form.reset();
-    }, 2500);
-  });
-}
 
 
 /* ============================================================
@@ -720,10 +696,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // 3. Initialize navigation
   initMobileNav();
 
-  // 5. Initialize contact form
-  initContactForm();
-
-  // 6. Initialize lightbox and bind gallery triggers
+  // 4. Initialize lightbox and bind gallery triggers
   Lightbox.init();
   bindLightboxTriggers();
 });
