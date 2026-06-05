@@ -333,7 +333,7 @@ const PROJECTS_DATA = [
         { src: "images/Log-in-page.png",          label: "Log-In Page" },
         { src: "images/Register-page.png",        label: "Register Page" },
         { src: "images/Forgot-password-page.png", label: "Forgot Password Page" },
-        { src: "images/Dashboard-page.png",       label: "Dashboard" },
+        { src: "images/jp-home-page.png",         label: "Dashboard" },
         { src: "images/Inventory-page.png",       label: "Inventory Page" },
         { src: "images/add-new-batch-modal.png",  label: "Add New Batch Modal" },
         { src: "images/Sales-page.png",           label: "Sales Page" },
@@ -454,7 +454,7 @@ function renderProjectStage(index) {
     var yearDeptHTML = '';
     var yearDeptItems = [];
     if (project.year)       yearDeptItems.push('<span class="project-meta__badge"><span class="project-meta__icon">Year:</span> ' + project.year + '</span>');
-    if (project.department) yearDeptItems.push('<span class="project-meta__badge"><span class="project-meta__icon">&#127891;</span> ' + project.department + '</span>');
+    if (project.department) yearDeptItems.push('<span class="project-meta__badge"><span class="project-meta__icon">Department:</span> ' + project.department + '</span>');
     if (yearDeptItems.length) {
       yearDeptHTML = '<div class="project-meta__line">' + yearDeptItems.join('') + '</div>';
     }
