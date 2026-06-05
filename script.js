@@ -20,19 +20,6 @@ const SKILLS = [
 ];
 
 /* ─────────────────────────────────────────────────────────────
-   SQA DATA — ISO/IEC 25010 Evaluation Matrix
-   ───────────────────────────────────────────────────────────── */
-const SQA_DATA = [
-  { attribute: "Functional Suitability",  verifyUsers: "Strongly Agree", verifyExperts: "Strongly Agree", canteenUsers: "Strongly Agree", canteenExperts: "Strongly Agree" },
-  { attribute: "Performance Efficiency",  verifyUsers: "Strongly Agree", verifyExperts: "Agree",        canteenUsers: "Strongly Agree", canteenExperts: "Strongly Agree" },
-  { attribute: "Usability",              verifyUsers: "Strongly Agree", verifyExperts: "Strongly Agree", canteenUsers: "Agree",          canteenExperts: "Strongly Agree" },
-  { attribute: "Reliability",            verifyUsers: "Agree",          verifyExperts: "Strongly Agree", canteenUsers: "Agree",          canteenExperts: "Agree" },
-  { attribute: "Security",               verifyUsers: "Strongly Agree", verifyExperts: "Strongly Agree", canteenUsers: "Strongly Agree", canteenExperts: "Strongly Agree" },
-  { attribute: "Maintainability",        verifyUsers: "Agree",          verifyExperts: "Strongly Agree", canteenUsers: "Agree",          canteenExperts: "Strongly Agree" },
-  { attribute: "Portability",            verifyUsers: "Agree",          verifyExperts: "Agree",          canteenUsers: "Agree",          canteenExperts: "Agree" },
-];
-
-/* ─────────────────────────────────────────────────────────────
    PROJECTS_DATA — Central configuration array
    ─────────────────────────────────────────────────────────────
    Each object defines a project tab. The UI maps over this
@@ -440,42 +427,6 @@ function switchProject(index) {
 
 
 /**
- * renderSQATable — Maps over SQA_DATA to populate the evaluation matrix rows
- */
-function renderSQATable() {
-  var tbody = document.querySelector('#sqa-table tbody');
-  if (!tbody) return;
-
-  tbody.innerHTML = SQA_DATA.map(function (row) {
-    return '<tr>' +
-      '<td><strong>' + row.attribute + '</strong></td>' +
-      '<td>' + renderRatingBadge(row.verifyUsers) + '</td>' +
-      '<td>' + renderRatingBadge(row.verifyExperts) + '</td>' +
-      '<td>' + renderRatingBadge(row.canteenUsers) + '</td>' +
-      '<td>' + renderRatingBadge(row.canteenExperts) + '</td>' +
-    '</tr>';
-  }).join('');
-}
-
-
-/**
- * renderRatingBadge — Returns styled rating HTML based on Likert value
- * @param {string} rating — "Strongly Agree" | "Agree" | "Fair" etc.
- * @returns {string} HTML string
- */
-function renderRatingBadge(rating) {
-  var badgeClass = 'sqa-rating__badge--fair';
-  if (rating === 'Strongly Agree') badgeClass = 'sqa-rating__badge--strong';
-  else if (rating === 'Agree') badgeClass = 'sqa-rating__badge--good';
-
-  return '<span class="sqa-rating">' +
-    '<span class="sqa-rating__badge ' + badgeClass + '"></span>' +
-    rating +
-  '</span>';
-}
-
-
-/**
  * bindToggles — Attaches click handlers to toggle switches in the canteen mockup
  */
 function bindToggles() {
@@ -673,10 +624,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // 2. Render project workspace (default to first project)
   switchProject(0);
 
-  // 3. Render SQA evaluation matrix from SQA_DATA array
-  renderSQATable();
-
-  // 4. Initialize navigation
+  // 3. Initialize navigation
   initMobileNav();
 
   // 5. Initialize contact form
