@@ -562,65 +562,135 @@ input, textarea { font-family: inherit; }
   min-height: 320px;
 }
 
-/* === TIMELINE (Education) === */
-.timeline {
-  position: relative;
-  padding-left: 28px;
-  max-width: 680px;
+/* === EDUCATION CARDS === */
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 6px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: var(--border);
-}
-
-.timeline__item {
+.edu-card {
   position: relative;
-  margin-bottom: 32px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform var(--duration) var(--ease), border-color var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
 }
 
-.timeline__item:last-child {
-  margin-bottom: 0;
+.edu-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-hover);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
 }
 
-.timeline__dot {
-  position: absolute;
-  left: -28px;
-  top: 6px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--blue);
-  border: 3px solid var(--bg-surface);
-  transform: translateX(-6px);
-  box-shadow: 0 0 0 3px var(--blue-glow);
+.edu-card__accent {
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue), var(--purple));
 }
 
-.timeline__date {
+.edu-card__accent--alt {
+  background: linear-gradient(90deg, var(--purple), var(--green));
+}
+
+.edu-card__body {
+  padding: 28px 26px 24px;
+}
+
+.edu-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.edu-card__badge {
   font-family: var(--font-mono);
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--blue);
-  margin-bottom: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
 }
 
-.timeline__content h3 {
-  font-size: 1.05rem;
-  font-weight: 600;
+.edu-card__badge--degree {
+  background: var(--blue-glow);
+  color: var(--blue);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+.edu-card__badge--shs {
+  background: var(--purple-glow);
+  color: var(--purple);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+}
+
+.edu-card__years {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.edu-card__school {
+  font-size: 1.15rem;
+  font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 6px;
+  letter-spacing: -0.3px;
 }
 
-.timeline__content p {
+.edu-card__program {
   font-size: 0.9rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.edu-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.edu-card__tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+.edu-card__tag--honors {
+  background: var(--green-glow);
+  border-color: rgba(16, 185, 129, 0.25);
+  color: var(--green);
+  font-weight: 600;
+}
+
+.edu-card__details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.edu-card__detail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.edu-card__detail-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  width: 24px;
+  text-align: center;
 }
 
 /* === EXPERIENCE CARD === */
@@ -1727,6 +1797,11 @@ input, textarea { font-family: inherit; }
 @media (max-width: 900px) {
   .overview-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .edu-grid {
+    grid-template-columns: 1fr;
+    max-width: 540px;
   }
 
   .verify-gallery {
