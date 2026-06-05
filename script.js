@@ -248,7 +248,7 @@ const PROJECTS_DATA = [
     title: "JP Gadgets Shoppe — Inventory Management System",
     descriptionTitle: "JP Gadgets Shoppe — Inventory Management System",
     description: "A web-based inventory management system built for JP Gadgets Shoppe to streamline product tracking, sales recording, and expense monitoring. The system features a batch-based inventory model where products are grouped by purchase batch, enabling accurate cost tracking and stock management across multiple product categories. Sales are logged with full transaction details including payment mode, delivery method, and customer information, while expenses are organized by batch for clear financial oversight.",
-    authors: "Lee Russell B. Mejares",
+    authors: "Sydney P. Toreña (Manager) | Genesis Paul A. Mellomida (Analyst) | Liah Hellaene Tenedora (Analyst) | Lee Russell B. Mejares (Developer) | Angel Rose F. Cerezo (Developer) | Mark Joseph G. Paule (Tester/QA) | Crystal Breanne P. Aznar (Tester/QA)",
     year: "2025",
     department: "College of Informatics — Computer Science",
     howItWorks: [
@@ -301,7 +301,7 @@ const PROJECTS_DATA = [
     ],
     tags: ["Node.js", "Express", "HTML5/CSS3/JavaScript", "SQLite", "better-sqlite3", "REST API"],
     metrics: [
-      { label: "Database",     value: "SQLite (WAL Mode)",   colorClass: "" },
+      { label: "Database",     value: "Firebase Firestore",   colorClass: "" },
       { label: "API Routes",   value: "15+ Endpoints",       colorClass: "metric--green" },
       { label: "Architecture", value: "REST + MVC",          colorClass: "metric--purple" },
       { label: "Auth",         value: "Session-Based",       colorClass: "metric--amber" },
