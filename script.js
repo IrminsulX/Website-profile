@@ -43,6 +43,7 @@ const PROJECTS_DATA = [
     ],
     year: "August 2025 – May 2026",
     department: "College of Informatics — Computer Science",
+    domain: { name: "ai-verify.dev", status: "offline" },
     howItWorks: [
       {
         step: "01",
@@ -119,6 +120,8 @@ const PROJECTS_DATA = [
     ],
     year: "March 2026 – May 2026",
     department: "College of Informatics — Computer Science",
+    client: "Philippine Christian University, Manila",
+    domain: { name: "pcu-canteen.onrender.com", status: "online" },
     howItWorks: [
       {
         step: "01",
@@ -268,6 +271,8 @@ const PROJECTS_DATA = [
     ],
     year: "February 2025 – May 2025",
     department: "College of Informatics — Computer Science",
+    client: "JP Gadgets Shoppe",
+    domain: { name: "localhost", status: "local" },
     howItWorks: [
       {
         step: "01",
@@ -458,12 +463,28 @@ function renderProjectStage(index) {
     if (yearDeptItems.length) {
       yearDeptHTML = '<div class="project-meta__line">' + yearDeptItems.join('') + '</div>';
     }
+
+    var clientHTML = '';
+    if (project.client) {
+      clientHTML = '<div class="project-meta__line">' +
+        '<span class="project-meta__badge"><span class="project-meta__icon">Client:</span> ' + project.client + '</span>' +
+      '</div>';
+    }
+
+    var domainHTML = '';
+    if (project.domain) {
+      var statusDot = '<span class="domain-indicator domain-indicator--' + project.domain.status + '"></span>';
+      var statusLabel = project.domain.status.charAt(0).toUpperCase() + project.domain.status.slice(1);
+      domainHTML = '<div class="project-meta__line">' +
+        '<span class="project-meta__badge"><span class="project-meta__icon">Domain:</span> ' + project.domain.name + ' ' + statusDot + ' ' + statusLabel + '</span>' +
+      '</div>';
+    }
     descriptionHTML =
       '<div class="project-description">' +
         descTitleHTML +
         '<p>' + project.description + '</p>' +
-        (authorsHTML || yearDeptHTML
-          ? '<div class="project-meta">' + authorsHTML + yearDeptHTML + '</div>'
+        (authorsHTML || yearDeptHTML || clientHTML || domainHTML
+          ? '<div class="project-meta">' + authorsHTML + yearDeptHTML + clientHTML + domainHTML + '</div>'
           : '') +
       '</div>';
   }
